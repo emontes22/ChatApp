@@ -35,6 +35,8 @@ def client_handler(client):
 		username = client.recv(2048).decode('utf-8')
 		if username != '':
 			active_clients.append((username, client))
+			prompt_msg = "SERVER:" + f"{username} joined the chat!"
+			send_messages(prompt_msg)
 			break
 		else:
 			print("Username is empty")
